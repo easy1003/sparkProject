@@ -29,11 +29,13 @@ public class JavaNormalWordCount {
                 .appName("JavaWordCount")
                 .getOrCreate();
 
-
+        JavaRDD<String> lines = spark.read().textFile(args[0]).javaRDD();
         SimpleDateFormat df=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String date1=df.format(new Date());
         Long time1=System.currentTimeMillis();
-        String filename="avaliable/result_"+date1+".txt";
+
+        String [] ag = args[0].split("19998/");
+        String filename="avaliable/result_"+date1+"-"+ag[ag.length-1]+".txt";
 
         System.setOut( new PrintStream(new FileOutputStream(filename)));
         System.out.println("read start time:"+date1);
@@ -44,7 +46,7 @@ public class JavaNormalWordCount {
         JavaSparkContext ctx=new JavaSparkContext(sparkconf);
         JavaRDD<String> lines=ctx.textFile(args[0],24);*/
 
-        JavaRDD<String> lines = spark.read().textFile(args[0]).javaRDD();
+
 
         String date2=df.format(new Date());
         Long time2=System.currentTimeMillis();

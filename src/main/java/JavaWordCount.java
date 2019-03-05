@@ -30,7 +30,7 @@ public final class JavaWordCount {
                 .appName("JavaWordCount")
                 .getOrCreate();
         */
-        SparkConf sparkconf=new SparkConf().setAppName("javawc");
+        SparkConf sparkconf=new SparkConf().setAppName("javamalwc");
         sparkconf.set("spark.default.parallelism","500");
         //sparkconf.set("spark.scheduler.mode","FAIR");
         sparkconf.set("spark.locality.wait","0");
